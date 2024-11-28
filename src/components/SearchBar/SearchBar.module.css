@@ -1,0 +1,33 @@
+.search-bar {
+  background-color: #1a237e;
+  padding: 15px;
+}
+
+.input-container {
+  position: relative;
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+}
+
+.input-container input {
+  width: 100%;
+  padding: 10px 40px 10px 15px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+.search-btn {
+  position: absolute;
+  right: 10px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+.search-icon {
+  color: #1a237e;
+  font-size: 20px;
+}
