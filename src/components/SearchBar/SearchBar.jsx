@@ -1,40 +1,42 @@
-import React, { useState } from 'react';
-import { FaSearch } from 'react-icons/fa';
-import toast from 'react-hot-toast';
-import css from './SearchBar.module.css';
-
-
+import React, { useState } from "react";
+import PropTypes from "prop-types";
+import css from "./SearchBar.module.css";
+import { FaSearch } from "react-icons/fa"; 
+import toast from "react-hot-toast";
 const SearchBar = ({ onSubmit }) => {
-  const [inputValue, setInputValue] = useState('');
+  const [query, setQuery] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!inputValue.trim()) {
-      toast.error('Please enter a search term!');
+    if (!query.trim()) {
+      toast.error("Please enter a search word!");
       return;
     }
-    onSubmit(inputValue.trim());
-    setInputValue('');
+    onSubmit(query);
   };
 
   return (
-    <header className="search-bar">
-      <form onSubmit={handleSubmit}>
-        <div className="input-container">
-          <input
-            type="text"
-            value={inputValue}
-            onChange={(e) => setInputValue(e.target.value)}
-            placeholder="Search images and photos"
-            autoFocus
+    <header className={css.header}>
+      <form className={css.form} onSubmit={handleSubmit}>
+        <div className={css.searchForm}>
+        <button className={css.button} type="submit">
+          <FaSearch className={css.icon} />
+        </button>
+        <input
+          className={css.input}
+          type="text"
+          value={query}
+          onChange={(e) => setQuery(e.target.value)}
+          placeholder="Search images and photos"
           />
-          <button type="submit" className="search-btn">
-            <FaSearch className="search-icon" />
-          </button>
-        </div>
+          </div>
       </form>
     </header>
   );
+};
+
+SearchBar.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
 };
 
 export default SearchBar;

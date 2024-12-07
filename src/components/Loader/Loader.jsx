@@ -1,13 +1,13 @@
 import React from 'react';
-// import { Circles } from 'react-loader-spinner';
 import css from "./Loader.module.css"
-import { TailSpin } from 'react-loader-spinner';
+import { Rings } from "react-loader-spinner";
 
-
-const Loader = () => (
-  <div className="loader">
-    <TailSpin color="#1a237e" height={50} width={50} />
-  </div>
-);
+const Loader = () => {
+  return (
+    <div className={css.loader}>
+       <Rings color="#00BFFF" height={80} width={80} />
+    </div>
+  );
+};
 
 export default Loader;
